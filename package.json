@@ -2,13 +2,20 @@
   "private": true,
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server --content-base dist/"
+    "start": "webpack-dev-server --content-base dist/",
+    "test:features": "wdio"
   },
   "dependencies": {
     "todomvc-app-css": "^2.1.0",
     "todomvc-common": "^1.0.3"
   },
   "devDependencies": {
+    "chai": "^4.0.2",
+    "mocha": "^3.4.2",
+    "wdio-mocha-framework": "^0.5.10",
+    "wdio-selenium-standalone-service": "0.0.8",
+    "wdio-spec-reporter": "^0.1.0",
+    "webdriverio": "^4.8.0",
     "webpack": "^3.3.0",
     "webpack-dev-server": "^2.6.1"
   }
