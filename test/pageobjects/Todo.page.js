@@ -23,8 +23,12 @@ class TodoPage {
     }
 
     removeItem(item) {
-        this.labelOfItem(item).moveToObject();
+        this.moveMouseToItem(item);
         this.removeButtonOfItem(item).click();
+    }
+
+    moveMouseToItem(item) {
+        this.labelOfItem(item).moveToObject();
     }
 }
 

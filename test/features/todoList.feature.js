@@ -42,4 +42,48 @@ describe('Todo list', function() {
             })
         });
     });
+
+    describe('Remove item', function() {
+        beforeEach(function() {
+            TodoPage.addItem('new item');
+        });
+
+        describe('Remove button', function() {
+            afterEach(function() {
+                TodoPage.removeItem('new item');
+            });
+
+            context('when the mouse is not on the item', function() {
+
+                it('is not visible', function() {
+                    expect(TodoPage.removeButtonOfItem('new item').isVisible()).to.be.false;
+                });
+            })
+
+            context('when the mouse is on the item', function() {
+                beforeEach(function() {
+                    TodoPage.moveMouseToItem('new item');
+                })
+
+                it('is visible', function() {
+                    expect(TodoPage.removeButtonOfItem('new item').isVisible()).to.be.true;
+                });
+            })
+        });
+
+        describe('Clicking remove button', function() {
+            beforeEach(function() {
+                this.originalListSize = TodoPage.listSize;
+                TodoPage.removeItem('new item');
+            });
+
+            it('removes the item', function() {
+                TodoPage.labelOfItem('new item').waitForVisible(undefined, true);
+            });
+
+            it('decreases the items size', function() {
+                expect(TodoPage.listSize).to.be.eq(this.originalListSize - 1);
+            });
+        });
+    });
 });
