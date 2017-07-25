@@ -86,4 +86,36 @@ describe('Todo list', function() {
             });
         });
     });
+
+    describe('Todos left info', function() {
+        context('when 2 todos left', function() {
+            beforeEach(function() {
+                TodoPage.addItem('item1');
+                TodoPage.addItem('item2');
+            })
+
+            afterEach(function() {
+                TodoPage.removeItem('item1');
+                TodoPage.removeItem('item2');
+            })
+
+            it('says 2 items left', function() {
+                expect(TodoPage.todoLeftInfo.getText()).to.be.eq('2 items left');
+            });
+        })
+
+        context('when only 1 todo left', function() {
+            beforeEach(function() {
+                TodoPage.addItem('item1');
+            })
+
+            afterEach(function() {
+                TodoPage.removeItem('item1');
+            })
+
+            it('says 1 item left', function() {
+                expect(TodoPage.todoLeftInfo.getText()).to.be.eq('1 item left');
+            });
+        })
+    });
 });

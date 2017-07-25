@@ -1,6 +1,7 @@
 class TodoPage {
     get input() { return $('.new-todo'); }
     get todoList() { return $('ul.todo-list'); }
+    get todoLeftInfo() { return $('.todo-count'); }
 
     get listSize() { return this.todoList.elements('li').value.length; }
 
