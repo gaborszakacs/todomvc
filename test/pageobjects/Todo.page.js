@@ -13,9 +13,18 @@ class TodoPage {
         return $(`label=${item}`);
     }
 
+    removeButtonOfItem(item) {
+        return $(`//label[text()="${item}"]/../button[@class="destroy"]`);
+    }
+
     addItem(item) {
         this.input.setValue(item);
         browser.keys('\uE007');
+    }
+
+    removeItem(item) {
+        this.labelOfItem(item).moveToObject();
+        this.removeButtonOfItem(item).click();
     }
 }
 

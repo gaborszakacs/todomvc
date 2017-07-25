@@ -17,6 +17,10 @@ describe('Todo list', function() {
                     TodoPage.addItem('new item');
                 });
 
+                afterEach(function() {
+                    TodoPage.removeItem('new item');
+                });
+
                 it('adds an item to the list', function() {
                     expect(TodoPage.listSize).to.be.eq(this.originalListSize + 1);
                 });
