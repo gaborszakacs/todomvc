@@ -8,13 +8,34 @@ describe('Todo list', function() {
     describe('Add item', function() {
 
         describe('Hitting Enter', function() {
-
-            it('adds item to the list', function() {
-                TodoPage.input.setValue('new item');
-                browser.keys('\uE007');
-
-                $('label=new item').waitForVisible();
+            beforeEach(function() {
+                this.originalListSize = TodoPage.listSize;
             });
+
+            context('when input is not empty', function() {
+                beforeEach(function() {
+                    TodoPage.addItem('new item');
+                });
+
+                it('adds an item to the list', function() {
+                    expect(TodoPage.listSize).to.be.eq(this.originalListSize + 1);
+                });
+
+                it('makes the input value appear as a label', function() {
+                    TodoPage.labelOfItem('new item').waitForVisible();
+                });
+            })
+
+            context('when input is empty', function() {
+                beforeEach(function() {
+                    TodoPage.addItem('  ');
+                    browser.pause(1000);
+                });
+
+                it('does not add item to the list', function() {
+                    expect(TodoPage.listSize).to.be.eq(this.originalListSize);
+                });
+            })
         });
     });
 });
