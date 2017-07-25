@@ -1,4 +1,20 @@
-# Vanilla ES6 (ES2015) • [TodoMVC](http://todomvc.com)
+## Setup project
+
+`git clone git@github.com:gaborszakacs/todomvc.git && cd todomvc && npm install`
+
+## Build project
+
+`npm run build`
+
+## Start development server on localhost:8080
+
+`npm run start`
+
+## Run feature tests:
+
+`npm run test:features`
+
+# Original README: Vanilla ES6 (ES2015) • [TodoMVC](http://todomvc.com)
 
 > A port of the [Vanilla JS Example](http://todomvc.com/examples/vanillajs/), but translated into ES6, also known as ES2015.
 
