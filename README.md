@@ -1,6 +1,8 @@
 ## Setup project
 
-`git clone git@github.com:gaborszakacs/todomvc.git && cd todomvc && npm install`
+Make sure you have `node-gyp` installed globally and have Xcode command line tools (on OSX). [More info](https://github.com/nodejs/node-gyp#installation)
+
+`git clone https://github.com/gaborszakacs/todomvc.git && cd todomvc && npm install`
 
 ## Build project
 
@@ -13,6 +15,23 @@
 ## Run feature tests:
 
 `npm run test:features`
+
+If you see something like this, your setup is complete:
+
+```
+[chrome #0-0] Running: chrome
+[chrome #0-0]
+[chrome #0-0] Todo list
+[chrome #0-0]
+[chrome #0-0]     Add item
+[chrome #0-0]
+[chrome #0-0]         Hitting Enter
+[chrome #0-0]           ✓ adds item to the list
+[chrome #0-0]
+[chrome #0-0]
+[chrome #0-0] 1 passing (3s)
+[chrome #0-0]
+```
 
 # Original README: Vanilla ES6 (ES2015) • [TodoMVC](http://todomvc.com)
 
